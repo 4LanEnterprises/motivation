@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const proxyUrl = 'https://corsproxy.io/?';
-    const targetUrl = 'https://www.bible.com/verse-of-the-day';
+    const targetUrl = 'https://www.brainyquote.com/quote_of_the_day';
 
     fetch(proxyUrl + encodeURIComponent(targetUrl))
         .then(response => response.text())
@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.getElementById('quote-image').style.display = 'block';
                     document.getElementById('quote').style.display = 'none';
                 } else {
-                    document.getElementById('quote').textContent = "quote image not found.";
+                    document.getElementById('quote').textContent = "Quote image not found.";
                 }
             } else {
-                document.getElementById('quote').textContent = "quote image not found.";
+                document.getElementById('quote').textContent = "Quote image not found.";
             }
         })
         .catch(error => {
