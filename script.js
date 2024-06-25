@@ -7,14 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(data, 'text/html');
-            const imageElement = doc.querySelector('img'); // Assume the first image is the Quote of the Day image
+
+            // Find the image with the class 'p-qotd'
+            const imageElement = doc.querySelector('img.p-qotd');
+
             if (imageElement) {
-                // Extract the 'srcset' attribute
-                const srcset = imageElement.getAttribute('srcset');
-                if (srcset) {
-                    // Split the srcset to get the first URL
-                    const relativeUrl = srcset.split(' ')[0];
+                const relativeUrl = imageElement.getAttribute('src');
+                console.log('Relative URL:', relativeUrl); // Log the relative URL for debugging
+                if (relativeUrl) {
                     const fullUrl = 'https://www.brainyquote.com' + relativeUrl; // Prepend the base URL
+                    console.log('Full URL:', fullUrl); // Log the full URL for debugging
                     document.getElementById('quote-image').src = fullUrl;
                     document.getElementById('quote-image').style.display = 'block';
                     document.getElementById('quote').style.display = 'none';
