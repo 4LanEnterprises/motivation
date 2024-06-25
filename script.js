@@ -8,8 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(data, 'text/html');
 
+            // Log the entire HTML for debugging
+            console.log('Fetched HTML:', doc.documentElement.innerHTML);
+
             // Find the image with the class 'p-qotd'
             const imageElement = doc.querySelector('img.p-qotd');
+            console.log('Image Element:', imageElement); // Log the image element for debugging
 
             if (imageElement) {
                 const relativeUrl = imageElement.getAttribute('src');
