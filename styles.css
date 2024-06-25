@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #fdf5e6;
+    background-color: #e0f7fa; /* Light blue background */
     color: #5a5a5a;
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ body {
 }
 
 header {
-    background-color: #f5deb3;
+    background-color: #80deea; /* Medium light blue background */
     padding: 20px;
     width: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@ header {
 
 h1 {
     margin: 0;
-    color: #d2691e;
+    color: #0277bd; /* Dark blue text */
 }
 
 main {
@@ -36,20 +36,20 @@ main {
     padding: 20px;
 }
 
-#verse-container {
-    background-color: #fff8dc;
-    border: 2px solid #f5deb3;
+#quote-container {
+    background-color: #e0f7fa; /* Light blue background */
+    border: 2px solid #80deea; /* Medium light blue border */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#verse {
+#quote {
     font-size: 1.5em;
-    color: #a0522d;
+    color: #0277bd; /* Dark blue text */
 }
 
-#verse-image {
+#quote-image {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
