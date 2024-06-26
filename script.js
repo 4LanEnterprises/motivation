@@ -16,10 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log('Image Element:', imageElement); // Log the image element for debugging
 
             if (imageElement) {
-                const relativeUrl = imageElement.getAttribute('src');
-                console.log('Relative URL:', relativeUrl); // Log the relative URL for debugging
-                if (relativeUrl) {
-                    const fullUrl = 'https://www.brainyquote.com' + relativeUrl; // Prepend the base URL
+                // Extract the 'srcset' attribute and find the URL for 1200w
+                const srcset = imageElement.getAttribute('srcset');
+                console.log('Srcset:', srcset); // Log the srcset for debugging
+
+                const srcsetParts = srcset.split(',').map(part => part.trim());
+                const highResImage = srcsetParts.find(part => part.endsWith('1200w')).split(' ')[0];
+                console.log('High Res Image URL:', highResImage); // Log the high res image URL for debugging
+
+                if (highResImage) {
+                    const fullUrl = 'https://www.brainyquote.com' + highResImage; // Prepend the base URL
                     console.log('Full URL:', fullUrl); // Log the full URL for debugging
                     document.getElementById('quote-image').src = fullUrl;
                     document.getElementById('quote-image').style.display = 'block';
