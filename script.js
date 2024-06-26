@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const proxyUrl = 'https://cors-proxy.htmldriven.com/?url=';
-    const targetUrl = 'https://www.brainyquote.com/quote_of_the_day';
+    const proxyUrl = 'https://api.allorigins.win/get?url=';
+    const targetUrl = encodeURIComponent('https://www.brainyquote.com/quote_of_the_day');
 
-    fetch(proxyUrl + encodeURIComponent(targetUrl))
-        .then(response => response.text())
+    fetch(proxyUrl + targetUrl)
+        .then(response => response.json())
         .then(data => {
             const parser = new DOMParser();
-            const doc = parser.parseFromString(data, 'text/html');
+            const doc = parser.parseFromString(data.contents, 'text/html');
 
             // Log the entire HTML for debugging
             console.log('Fetched HTML:', doc.documentElement.innerHTML);
