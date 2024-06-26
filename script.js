@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const proxyUrl = 'https://corsproxy.io/?';
+    const proxyUrl = 'https://cors-proxy.htmldriven.com/?url=';
     const targetUrl = 'https://www.brainyquote.com/quote_of_the_day';
 
     fetch(proxyUrl + encodeURIComponent(targetUrl))
