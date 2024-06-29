@@ -1,12 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const proxyUrl = 'https://api.allorigins.win/get?url=';
-    const targetUrl = encodeURIComponent('https://www.brainyquote.com/quote_of_the_day');
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const targetUrl = 'https://www.brainyquote.com/quote_of_the_day';
 
     fetch(proxyUrl + targetUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
         .then(data => {
             const parser = new DOMParser();
-            const doc = parser.parseFromString(data.contents, 'text/html');
+            const doc = parser.parseFromString(data, 'text/html');
 
             // Log the entire HTML for debugging
             console.log('Fetched HTML:', doc.documentElement.innerHTML);
