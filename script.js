@@ -1,14 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const proxyUrl = 'https://corsproxy.io/?';
+    const proxyUrl = 'https://quote-of-the-day.herokuapp.com/proxy?url=';
     const targetUrl = encodeURIComponent('https://www.brainyquote.com/quote_of_the_day');
 
     fetch(proxyUrl + targetUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.text();
-        })
+        .then(response => response.text())
         .then(data => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(data, 'text/html');
