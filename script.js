@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log('Srcset:', srcset); // Log the srcset for debugging
 
                 const srcsetParts = srcset.split(',').map(part => part.trim());
-                const highResImage = srcsetParts.find(part => part.endsWith('1200w')).split(' ')[0];
+                const highResImage = srcsetParts.find(part => part.includes('1200w')).split(' ')[0];
                 console.log('High Res Image URL:', highResImage); // Log the high res image URL for debugging
 
                 if (highResImage) {
