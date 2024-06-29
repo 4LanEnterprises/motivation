@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const proxyUrl = 'https://your-cors-proxy.herokuapp.com/proxy?url=';
+    const proxyUrl = 'https://cors-qotd.herokuapp.com/proxy?url=';
     const targetUrl = encodeURIComponent('https://www.brainyquote.com/quote_of_the_day');
 
     fetch(proxyUrl + targetUrl, {
